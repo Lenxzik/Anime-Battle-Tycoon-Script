@@ -1,0 +1,141 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-Ui-Library/main/source.lua"))()
+local Window = Library.CreateLib("Anime Battle Tycoon", "Sentinel")
+local Main = Window:NewTab("Main")
+local Features = Main:NewSection("Features")
+
+
+getgenv().AutoSpawn = false
+getgenv().AutoSell = false
+getgenv().AutoKill = false
+
+
+Features:NewToggle("AutoSpawn", "Stand Infront Of Manual Spawner", function(state)
+    getgenv().AutoSpawn = state
+while true do
+    if getgenv().AutoSpawn == false then return end
+    for i,v in pairs(game.Workspace:GetDescendants()) do
+       if getgenv().AutoSpawn == false then return end
+        if v:IsA("ProximityPrompt") then
+        if v.Name == "TycoonSpawn" then
+        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Parent.Parent.Position).Magnitude <= 15 then 
+        if getgenv().AutoSpawn == false then return end
+        for count = 1, 500 do
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            fireproximityprompt(v)
+            wait()
+            if getgenv().AutoSpawn == false then return end
+            end
+        else
+            if getgenv().AutoSpawn == false then return end
+            wait(0.01)
+        end
+    end
+        end
+        end
+    end
+end)
+
+
+
+Features:NewButton("Auto Collect", "ButtonInfo", function()
+    print("Clicked")
+local args = {
+    [1] = "CollectMoney"
+}
+
+game:GetService("ReplicatedStorage").Modules.ServiceLoader.NetworkService.Events.Objects.UpdateTycoons:FireServer(unpack(args))
+
+end)
+
+
+
+local Tab = Window:NewTab("Teleport")
+local TeleportSection = Tab:NewSection("Teleport")
+
+TeleportSection:NewButton("Home", "ButtonInfo", function()
+    print("Clicked")
+    game.game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(102.773453, 0.390892565, -140.387222, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+end)
+
+
+
+TeleportSection:NewButton("Upcoming", "ButtonInfo", function()
+    print("Clicked")
+    game.game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-130.418213, -90.6391144, -2853.39355, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+
+
+TeleportSection:NewButton("Red Line", "ButtonInfo", function()
+    print("Clicked")
+    game.game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-116.526382, -85.728775, -1333.86328, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+
+
+TeleportSection:NewButton("Frieza Boss", "ButtonInfo", function()
+    print("Clicked")
+    game.game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-116, 34.2405853, -675.31897, 0, -1, 0, 1, 0, -0, 0, 0, 1)
+end)
+
+
+TeleportSection:NewButton("Kaido Boss", "ButtonInfo", function()
+    print("Clicked")
+    game.game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-117.733002, -85.8679962, -1520.76099, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+Features:NewButton("Daily Chest", "Collects Daily Chest", function()
+    local A_1 = "Daily Chest"
+    local Event = game:GetService("ReplicatedStorage").Modules.ServiceLoader.NetworkService.Events.Objects.UpdateChests
+    Event:FireServer(A_1)
+    end)
+
+    Features:NewKeybind("Hide UI", "Set Keybind To Hide The UI", Enum.KeyCode.RightControl, function()
+        Library:ToggleUI()
+    end)
+
+
+    Features:NewSlider("WalkSpeed", "Changes Your WalkSpeed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+    end)
+
+
+    Features:NewSlider("JumpPower", "Changes Your JumpPower", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    end)
+
+
